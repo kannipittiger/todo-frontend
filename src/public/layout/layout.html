@@ -1,0 +1,32 @@
+<div class="min-h-screen flex flex-col bg-gray-100">
+  <!-- Header -->
+  <header class="h-14 bg-slate-800 text-white flex items-center px-6 shadow">
+    <h1 class="text-lg font-semibold">Todo App</h1>
+  </header>
+
+  <!-- Body -->
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <!-- <aside class="w-60 bg-white border-r shadow-sm p-4">
+      <nav class="space-y-2">
+        <a
+          routerLink="/todo"
+          class="block rounded px-3 py-2 text-gray-700 hover:bg-slate-100 hover:text-slate-900 transition"
+        >
+          📋 Todo List
+        </a>
+        <a
+          routerLink="/about"
+          class="block rounded px-3 py-2 text-gray-700 hover:bg-slate-100 hover:text-slate-900 transition"
+        >
+          ℹ️ About
+        </a>
+      </nav>
+    </aside> -->
+
+    <!-- Main content -->
+    <main class="flex-1 p-6">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
