@@ -1,10 +1,11 @@
-import { Component, inject, Inject } from '@angular/core';
+import { Component, inject, Inject, signal } from '@angular/core';
 import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { TodoService } from '../../../services/todo-service';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-todo-dialog',
@@ -15,6 +16,7 @@ import { TodoService } from '../../../services/todo-service';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule
   ],
   templateUrl: './todo-dialog.html',
   styleUrl: './todo-dialog.css',
@@ -28,9 +30,12 @@ export class TodoDialog {
 
   private todo = inject(TodoService);
 
+  status = signal<any>([]);
+
   form!: FormGroup;
 
   ngOnInit(): void {
+    this.getMasterStatus();
     this.form = this.fb.group({
       id: [this.data?.id ?? 0],
       name: [this.data?.name ?? '', Validators.required],
@@ -61,5 +66,11 @@ export class TodoDialog {
     }
 
     return payload;
+  }
+
+  getMasterStatus(){
+    this.todo.getTodoMasterStatuses().subscribe((res) => {
+      this.status.set(res);
+    });
   }
 }

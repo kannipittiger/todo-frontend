@@ -26,4 +26,8 @@ export class TodoService {
   deleteTodoList(todo: any): Observable<any> {
     return this.http.post<any>('http://localhost:5000/api/Todo/DelTodoList', todo);
   }
+
+  getTodoMasterStatuses(): Observable<any> {
+    return this.http.get('http://localhost:5000/api/Todo/GetTodoMasterStatuses');
+  }
 }

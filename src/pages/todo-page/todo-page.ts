@@ -18,6 +18,7 @@ export interface TodoItem {
   name: string;
   owner: string;
   statusId: number;
+  statusDesc: string;
 }
 
 @Component({
