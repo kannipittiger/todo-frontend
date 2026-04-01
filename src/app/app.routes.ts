@@ -7,6 +7,7 @@ export const routes: Routes = [
     path: '',
     component: Layout,
     children: [
+      { path: '', redirectTo: 'todo', pathMatch: 'full' },
       { path: 'todo', component: TodoPage },
     ],
   },
