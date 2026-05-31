@@ -11,8 +11,8 @@ export const routes: Routes = [
       { path: 'todo', component: TodoPage },
     ],
   },
-//   {
-//     path: 'login',
-//     loadComponent: () => import('./pages/login/login.component').then((m) => m.LoginComponent),
-//   },
+  {
+    path: 'login',
+    loadComponent: () => import('./../login/login').then((m) => m.Login),
+  },
 ];
